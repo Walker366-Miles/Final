@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>GLOBAL CHAT · earn talking</title>
+  <!-- Font Awesome 6 (free) for icons + hamburger -->
+ <link rel="icon" type="image/png" href="logo1.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #aa09f5;  /* deep professional base */
+      color: #edeef2;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* background images & blend — abstract world map hint + modern gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1333&auto=format&fit=crop'); /* subtle global network */
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 30% 40%, #1e2a3a60, #0a0c10 80%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* header fixed */
+    .header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(10, 15, 22, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+      z-index: 1000;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(130deg, #ffffff, #ffe791);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 15px #ffd96680;
+    }
+
+    /* desktop navigation */
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-weight: 500;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #dddddd;
+      font-size: 1.1rem;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: #ffdb7c;
+      border-bottom-color: #f0b90b;
+    }
+
+    /* hamburger mobile */
+    .hamburger {
+      display: none;
+      font-size: 2.2rem;
+      color: #f2d16b;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      transition: 0.2s;
+    }
+    .hamburger.active {
+      color: white;
+    }
+
+    /* mobile menu overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 80px; left: 0; width: 100%;
+      background: #121824ee;
+      backdrop-filter: blur(16px);
+      padding: 24px 20px 32px;
+      border-radius: 0 0 36px 36px;
+      box-shadow: 0 30px 40px -10px black;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 999;
+      transform: translateY(-150%);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+      border-bottom: 1px solid #f3c74d40;
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+    }
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.7rem;
+      font-weight: 600;
+      padding: 12px 0;
+      border-bottom: 1px solid #3f495a;
+      margin-left: 10px;
+    }
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* main content padding (fixed header) */
+    .main-content {
+      margin-top: 90px;
+    }
+
+    /* section spacing */
+    section {
+      padding: 70px 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* typography */
+    h1, h2 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #fce186, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    h2 i {
+      color: #ffd966;
+      margin-right: 12px;
+    }
+
+    /* cards, containers */
+    .card {
+      background: rgba(22, 30, 41, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      border-radius: 36px;
+      padding: 30px 20px;
+      box-shadow: 0 20px 35px -10px #00000080;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #f3b33d60;
+    }
+
+    /* buttons + CTA group */
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 30px 0 10px;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(145deg, #f7c948, #f5b31e);
+      color: #0b0e14;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1.4rem;
+      box-shadow: 0 10px 20px -5px #f5b31e70;
+      transition: 0.2s;
+      border: 1px solid #ffdc8b;
+      text-align: center;
+      min-width: 200px;
+      flex: 1 0 auto;
+    }
+    .btn-small {
+      font-size: 1.2rem;
+      padding: 14px 24px;
+      min-width: 150px;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #f7c948;
+      color: #f7c948;
+      box-shadow: none;
+    }
+    .btn:hover {
+      background: linear-gradient(145deg, #ffd966, #f7b731);
+      transform: scale(1.02);
+      border-color: white;
+    }
+
+    /* hero */
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      max-width: 900px;
+    }
+    .hero-description {
+      font-size: 1.6rem;
+      color: #cbd5e6;
+      max-width: 700px;
+    }
+
+    /* 3-step grid */
+    .grid-3, .benefits-grid, .reviews-grid, .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .step-card, .benefit-card {
+      background: rgba(16, 22, 32, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 30px 20px;
+      border: 1px solid rgba(255,200,90,0.2);
+      text-align: center;
+    }
+
+    .step-card i, .benefit-card i {
+      font-size: 3.2rem;
+      color: #ffcd6b;
+      margin-bottom: 15px;
+    }
+    .step-card h3 {
+      font-size: 2rem;
+    }
+
+    /* earnings section special */
+    .earnings-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .earning-item {
+      background: #1f2a38cc;
+      border-radius: 40px;
+      padding: 32px 28px;
+      flex: 1 1 220px;
+      border: 1px solid #ffd96640;
+    }
+    .earning-item .amount {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #fdd35e;
+    }
+    .disclaimer {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 12px;
+    }
+
+    /* motion slider (simulated with cards) */
+    .slider-section {
+      background: rgba(0,0,0,0.3);
+      border-radius: 60px;
+      padding: 40px 20px;
+      overflow-x: auto;
+      display: flex;
+      gap: 30px;
+      scrollbar-width: thin;
+      scrollbar-color: #f5b31e #2c3543;
+    }
+    .slider-card {
+      min-width: 260px;
+      background: #202937dd;
+      border-radius: 40px;
+      padding: 30px 20px;
+      backdrop-filter: blur(6px);
+      border: 1px solid #ffc962;
+    }
+    .slider-card i {
+      font-size: 3.5rem;
+    }
+
+    /* reviews */
+    .review-card {
+      background: #1b2330dd;
+      border-radius: 30px;
+      padding: 25px;
+      border-left: 6px solid #fbc85a;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .reviewer img {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: #ae9e7b;
+      object-fit: cover;
+    }
+
+    /* Payment Plans */
+    .EARNX{
+      padding:60px;
+      border-radius:25px;
+      text-align:center;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      gap: 25px;
+    }
+    .faq-q {
+      background: #1d2633f0;
+      border-radius: 28px;
+      padding: 22px 30px;
+      font-weight: 600;
+      border: 1px solid #5c5136;
+    }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #f0c15e30;
+      font-size: 1.2rem;
+    }
+
+    /* floating chat buttons */
+    .floating-chat {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 1100;
+    }
+    .chat-btn {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: white;
+      box-shadow: 0 8px 18px black;
+      transition: 0.2s;
+    }
+
+    .chat-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* mobile optimization */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .grid-3, .benefits-grid, .reviews-grid, .payment-grid {
+        grid-template-columns: 1fr;
+      }
+      h2 { font-size: 2.5rem; }
+      .hero h1 { font-size: 2.8rem; }
+    }
+
+    /* thumb friendly */
+    .btn, .chat-btn, .hamburger, .mobile-menu a {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* all CTA same reg link */
+    .cta-reg {
+      cursor: pointer;
+    }
+
+    /* image simulation (background avatars) */
+    .reviewer img {
+      background: url('https://randomuser.me/api/portraits/women/44.jpg') center/cover;
+    }
+    .reviewer:nth-child(2) img { background-image: url('https://randomuser.me/api/portraits/men/32.jpg'); }
+    .reviewer:nth-child(3) img { background-image: url('https://randomuser.me/api/portraits/women/68.jpg'); }
+  </style>
+</head>
+<body>
+  <!-- fixed header -->
+  <header class="header">
+    <div class="logo">  
+       <img src="logo1.png" class="logo-img" alt="Logo" width="50px">
+      GLOBAL CHAT</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#how">How it works</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#earnings">Earnings</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">🏠 Home</a>
+    <a href="#how" onclick="closeMenu()">📌 How it works</a>
+    <a href="#benefits" onclick="closeMenu()">✨ Benefits</a>
+    <a href="#earnings" onclick="closeMenu()">💰 Earnings</a>
+    <a href="#reviews" onclick="closeMenu()">🗣️ Reviews</a>
+    <a href="#faq" onclick="closeMenu()">❓ FAQ</a>
+  </div>
+
+  <!-- main content -->
+  <div class="main-content">
+    <!-- Hero Section -->
+    <section id="home" style="padding-top: 40px;">
+      <div class="hero">
+        <h1>Get Paid to Talk to Lonely People Worldwide</h1>
+        <p class="hero-description">Turn conversations into income. Join a global community that connects you with lonely foreigners — earn per minute, anywhere.</p>
+        <div class="cta-group">
+          <a href="https://mulastar.com/register.php?ref=NivLecK" class="btn">Register Now <i class="fas fa-arrow-right"></i></a>
+          <a href="https://mulastar.com/register.php?ref=NivLecK" class="btn btn-outline">Start Earning</a>
+          <a href="https://mulastar.com/register.php?ref=NivLecK" class="btn btn-outline">Join Today</a>
+        </div>
+        <!-- subtle background image is global behind -->
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how">
+      <h2><i class="fas fa-compass"></i> How it works</h2>
+      <div class="grid-3">
+        <div class="step-card"><i class="fas fa-globe"></i><h3>1. Join</h3><p style="font-size:1.4rem;">Any country, any background. Sign up free.</p></div>
+        <div class="step-card"><i class="fas fa-handshake"></i><h3>2. Get matched</h3><p style="font-size:1.4rem;">With lonely foreigners seeking real talk.</p></div>
+        <div class="step-card"><i class="fas fa-coins"></i><h3>3. Earn per min</h3><p style="font-size:1.4rem;">Cash flows while you chat.</p></div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+      <h2><i class="fas fa-medal"></i> Why join?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card"><i class="fas fa-brain"></i><h3>No experience</h3><p>Just be yourself.</p></div>
+        <div class="benefit-card"><i class="fas fa-laptop-house"></i><h3>Work anywhere</h3><p>from home, cafe, travel.</p></div>
+        <div class="benefit-card"><i class="fas fa-clock"></i><h3>Flexible hours</h3><p>day or night, you decide.</p></div>
+        <div class="benefit-card"><i class="fas fa-heart"></i><h3>Emotional impact</h3><p>Help lonely people, feel good.</p></div>
+        <div class="benefit-card"><i class="fas fa-comments-dollar"></i><h3>Easy income</h3><p>chat = money, simple.</p></div>
+        <div class="benefit-card"><i class="fas fa-people-arrows"></i><h3>Cultural exchange</h3><p>meet the world.</p></div>
+      </div>
+    </section>
+
+    <!-- Earnings Section + KES -->
+    <section id="earnings">
+      <h2><i class="fas fa-chart-line"></i>Example Of Earnings in Kenya shillings (KES) </h2>
+      <div class="earnings-cards">
+        <div class="earning-item"><span class="amount">650+ KES</span><br>per hour (avg)</div>
+        <div class="earning-item"><span class="amount">5,200 KES</span><br>daily (8 hrs)</div>
+        <div class="earning-item"><span class="amount">150k KES</span><br>monthly active</div>
+      </div>
+      <p class="disclaimer">* Earnings depend on your activity, location & time spent. Not guaranteed.</p>
+      <div class="cta-group" style="justify-content: center;">
+        <a href="https://mulastar.com/register.php?ref=NivLecK" class="btn btn-small">Register Now</a>
+      </div>
+    </section>
+
+    <!-- Motion / Slides / Video Section (simulated slider) -->
+    <section style="padding-top: 20px;">
+      <h2><i class="fas fa-play-circle"></i> Chat → Time → Money</h2>
+      <div class="slider-section">
+        <div class="slider-card"><i class="fas fa-comments"></i><h3>1 minute chat</h3><p>+ 25 KES</p></div>
+        <div class="slider-card"><i class="fas fa-clock"></i><h3>30 min</h3><p>≈ 750 KES</p></div>
+        <div class="slider-card"><i class="fas fa-smile"></i><h3>Happy listener</h3><p>earns while helping</p></div>
+        <div class="slider-card"><i class="fas fa-globe"></i><h3>Global friends</h3><p>real connections</p></div>
+      </div>
+      <!-- optional muted autoplay idea (just a placeholder) -->
+      <div style="border-radius: 50px; overflow:hidden; margin-top: 30px; max-width: 100%; background: #1f2b37; padding: 20px; text-align: center; border:1px solid #f0c15e;">
+        <i class="fas fa-video" style="font-size:3rem;"></i>  <span style="font-size:1.5rem;">
+          <img src="pic1.jpg" alt="1" width="500px"> 
+          <img src="pic2.jpg" alt="2" width="500px" height="300px"> <br>
+          <img src="pic3.jpg" alt="3" width="300px" height="300px"> 
+          <img src="pic4.jpg" alt="4" width="300px" height="300px"> 
+          <img src="pic5.jpg" alt="5" width="300px" height="300px"> 
+        </span>
+      </div>
+    </section>
+
+    <!-- Reviews & Social Proof -->
+    <section id="reviews">
+      <h2><i class="fas fa-star"></i> Trusted by members</h2>
+      <div class="reviews-grid">
+        <div class="review-card"><i class="fas fa-quote-left" style="color:#ffd966;"></i> “I earn daily from Nairobi, helping elderly feel less lonely.” <div class="reviewer"><img src="reviewer1.jpg" alt=""> <span><b>Wanjiku</b> 🇰🇪</span></div></div>
+        <div class="review-card"><i class="fas fa-quote-left" style="color:#ffd966;"></i> “My part-time now full time. Best decision.” <div class="reviewer"><img src="man.png" alt=""> <span><b>Brian</b> 🇺🇬</span></div></div>
+        <div class="review-card"><i class="fas fa-quote-left" style="color:#ffd966;"></i> “Flexible, and I get to practice English & earn.” <div class="reviewer"><img src="reviewer3.jpg" alt=""> <span><b>Fatima</b> 🇳🇬</span></div></div>
+      </div>
+    </section>
+
+    <!-- Payment Proof Section -->
+    <section>
+      <h2><i class="fas fa-receipt"></i> Payment Plans for different currencies</h2>
+      <div class="EARNX">
+        <div class="card" style="text-align: center;"> <P style="font-size: 30px;">
+          <img src="https://flagcdn.com/w20/ke.png" alt="Kenya" width="50px"> Kenya - Kes. 1000<br>
+          <img src="https://flagcdn.com/w20/gh.png" alt="Ghana" width="50px"> Ghana – 300 Cedis <br>
+          <img src="https://flagcdn.com/w20/cm.png" alt="Cameroon" width="50px"> Cameroon – 10,000 XAF <br>
+          <img src="https://flagcdn.com/w20/zm.png" alt="Zambia" width="50px"> Zambia – K400 <br>
+          <img src="https://flagcdn.com/w20/ug.png" alt="Uganda" width="50px"> Uganda – UGX 40,000 <br>
+          <img src="https://flagcdn.com/w20/rw.png" alt="Rwanda" width="50px"> Rwanda – RWF 15,000 <br>
+          <img src="https://flagcdn.com/w20/mw.png" alt="Malawi" width="50px"> Malawi – MWK 50,000 <br>
+          <img src="https://flagcdn.com/w20/tz.png" alt="Tanzania" width="50px"> Tanzania – TZS 25,000 <br>
+          <img src="https://flagcdn.com/w20/bw.png" alt="Botswana" width="50px"> Botswana – P 400</P></div>
+      </div>
+
+      <p style="text-align: center; margin-top: 15px;">*for illustration, individual results vary</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2><i class="fas fa-question-circle"></i> FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-q">🌍 Can I join from any country? <span style="display:block; font-weight:400; margin-top:10px;">Yes! We welcome all nationalities.</span></div>
+        <div class="faq-q">💼 Do I need experience? <span style="display:block; font-weight:400;">Zero experience required, just empathy.</span></div>
+        <div class="faq-q">💸 How do I get paid? <span style="display:block; font-weight:400;">M-PESA, bank, PayPal — available.</span></div>
+        <div class="faq-q">⏳ Part-time or full-time? <span style="display:block; font-weight:400;">Either. You set your hours.</span></div>
+        <div class="faq-q">📱 What devices? <span style="display:block; font-weight:400;">Phone, tablet, laptop — just internet.</span></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div style="font-size:2rem; font-weight:700; background: linear-gradient(130deg,#ffffff,#ffdb8e); -webkit-background-clip:text; background-clip:text; color:transparent;">GLOBAL CHAT</div>
+      <p style="margin: 25px 0 0;">© 2025 Global Chat. bridging hearts worldwide.</p>
+      <p style="font-size:0.9rem;">*all testimonials are real experiences, names changed.</p>
+    </footer>
+  </div>
+
+  <!-- Floating chat buttons -->
+  <div class="floating-chat">
+    <a href="https://api.whatsapp.com/send?phone=+254119608457&text=+Hi+,+I'm+interested" class="chat-btn" aria-label="WhatsApp">
+       <img src="whatsapp.png" width="48" alt="WhatsApp">
+      </a>
+
+    <a href="https://t.me/NivLecK" class="chat-btn" aria-label="Telegram">
+      <img src="telegram.png" width="48" alt="Telegram">
+    </a>
+
+  </div>
+
+  <!-- Smooth interactions -->
+  <script>
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      // change icon
+      const icon = hamburger.querySelector('i');
+      if (mobileMenu.classList.contains('open')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // close menu after link click (mobile)
+    window.closeMenu = function() {
+      mobileMenu.classList.remove('open');
+      const icon = hamburger.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+      hamburger.classList.remove('active');
+    };
+
+    // close on outside tap (optional)
+    document.addEventListener('click', function(event) {
+      if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target) && mobileMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // all CTA buttons link to the same registration
+    document.querySelectorAll('.cta-reg, .btn').forEach(btn => {
+      if (!btn.hasAttribute('href')) {
+        btn.addEventListener('click', () => {
+          window.location.href = 'https://mulastar.com/register.php?ref=NivLecK';
+        });
+      }
+    });
+
+    // smooth scroll for nav links (manual)
+    document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1); // remove #
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (mobileMenu.classList.contains('open')) closeMenu();
+      });
+    });
+  </script>
+</body>
+</html>
