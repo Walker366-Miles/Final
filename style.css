@@ -781,10 +781,72 @@ h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; line-height: 1.2; }
 .footer-brand .nav-logo { margin-bottom: 20px; }
 .footer-brand p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.75; max-width: 280px; margin-bottom: 24px; }
 
-.social-links { display: flex; gap: 12px; }
+.social-links { display: flex; flex-direction: column; gap: 12px; }
+
+.social-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.telegram-card {
+  background: linear-gradient(135deg, #0a2a4a, #0f4a7a);
+  border-color: rgba(0, 136, 204, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.2);
+}
+.telegram-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 136, 204, 0.45);
+  border-color: #0088cc;
+}
+
+.whatsapp-card {
+  background: linear-gradient(135deg, #0a2e1a, #0f4a28);
+  border-color: rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.2);
+}
+.whatsapp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+  border-color: #25d366;
+}
+
+.social-contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.08);
+}
+.social-contact-icon img { width: 28px; height: 28px; }
+
+.social-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.social-contact-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white);
+}
+.social-contact-caption {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 .social-link {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   border-radius: 10px;
   background: rgba(108,24,200,0.2);
   border: 1px solid var(--border);
@@ -797,18 +859,11 @@ h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; line-height: 1.2; }
 }
 .social-link:hover { background: var(--gradient-btn); border-color: transparent; color: var(--white); }
 
-.footer-col h4 {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: var(--white);
-}
-.footer-col ul li { margin-bottom: 12px; }
-.footer-col ul li a {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  transition: var(--transition);
+.social-caption {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  color: var(--cyan);
+  line-height: 1.5;
 }
 .footer-col ul li a:hover { color: var(--cyan); }
 
