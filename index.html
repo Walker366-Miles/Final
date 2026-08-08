@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoniChat – Connect, Chat & Earn Real Money</title>
+  <meta name="description" content="Turn your conversations into real income with MoniChat." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1: HEADER (Logo Left | Earn Counter Right)
+  ══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon"><img src="logo.png" alt="logo" onerror="this.parentElement.textContent='💬';"></div>
+        <span class="logo-text">Moni<span>Chat</span></span>
+      </a>
+
+      <div class="header-earning-box">
+        <span class="live-dot"></span>
+        <span><strong id="onlineCount">2,481</strong> People Earning Now</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════════════════════════════════════
+         SECTION 2: HERO SECTION
+    ══════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        
+        <!-- Trusted Badge -->
+        <div class="trust-badge">
+          <span class="badge-icon">🌍</span>
+          <span>Trusted by 20,000 Africans</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="hero-title">Get Paid to Chat and Teach Foreigners your local language</h1>
+
+        <!-- Image -->
+        <div class="hero-image-wrapper">
+          <div class="glow-ring"></div>
+          <img
+            src="img.jpeg"
+            alt="MoniChat App Dashboard"
+            onerror="this.style.background='linear-gradient(135deg,#1f3133,#111927)';this.style.minHeight='320px';this.style.borderRadius='16px';this.removeAttribute('onerror');"
+          />
+        </div>
+
+        <!-- Brief Message -->
+        <p class="hero-message">
+          Register to join the 20,000+ individuals who earn daily. Withdraw to Mpesa, MoMo, bank or Crypto.
+        </p>
+
+        <!-- Horizontal Feature List -->
+        <div class="hero-features-list">
+          <div class="feature-item">⚡ Instant withdrawals</div>
+          <div class="feature-item">🎧 24/7 support</div>
+          <div class="feature-item">✅ No experience needed</div>
+        </div>
+
+        <!-- Social & Group Buttons -->
+        <div class="hero-actions">
+          <div class="social-row">
+            <a href="https://wa.me/254107689839?" class="btn-social btn-whatsapp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.67-.82-1.93-.92-.26-.1-.45-.14-.64.14-.19.28-.73.92-.9 1.11-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.24-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38 0 1.4 1.02 2.76 1.16 2.95.14.19 2 3.06 4.86 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.67-.68 1.9-1.34.24-.66.24-1.22.16-1.34-.07-.12-.26-.19-.54-.33z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.32A9.96 9.96 0 0 0 12.02 22C17.54 22 22 17.52 22 12S17.54 2 12.02 2zm0 18.1c-1.68 0-3.24-.48-4.57-1.31l-.33-.2-3.01.78.8-2.94-.21-.32A8.07 8.07 0 0 1 3.9 12c0-4.48 3.65-8.1 8.12-8.1 4.47 0 8.12 3.62 8.12 8.1 0 4.48-3.65 8.1-8.12 8.1z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://t.me/NivlecK" class="btn-social btn-telegram" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.94 4.5c.26-1.1-.9-1.98-1.94-1.53L2.4 10.24c-1.13.5-1.12 2.1.02 2.58l4.5 1.9 1.72 5.5c.24.75 1.19.98 1.76.42l2.53-2.47 4.66 3.42c.9.66 2.18.17 2.4-.93L21.94 4.5zM8.53 13.9l-3.7-1.56 12.4-6.9-9.8 8.24c-.14.12-.24.28-.28.46l-.62 2.4-.66-2.13c-.06-.2-.2-.37-.34-.51z"/></svg>
+              Telegram
+            </a>
+          </div>
+          <a href="https://sites.google.com/view/monichatsite/home" class="btn btn-wide btn-primary">Join Training Group</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 3: LIVE FOREIGNERS ONLINE
+    ══════════════════════════════════════ -->
+<section class="live-foreigners">
+  <div class="container">
+    <div class="foreigners-card">
+      <span class="badge yellow-badge">Active Foreigners</span>
+      <h3>Foreigners Online & Waiting to Chat</h3>
+      <div class="foreigners-grid">
+                <!-- CARD -->
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="fr3.png" alt=""><span class="online-dot"></span>
+          </div>
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Carmen G.</strong><span class="age">58</span>
+            </div>
+
+            <div class="country"> Spain
+              <span class="status" data-state="online">
+               <span class="status-text">Online</span>
+                <span class="typing-dots"><i></i><i></i><i></i></span>
+               </span>
+            </div>
+
+              <div class="buttons">
+                <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+               
+              </div>
+          </div>
+        </div>
+
+        <div class="foreigner-card">
+          <div class="avatar">
+              <img src="frm1.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Marco R.</strong><span class="age">62</span>
+            </div>
+
+            <div class="country"> Italy
+              <span class="status" data-state="online">
+              <span class="status-text">Online</span>
+              <span class="typing-dots"><i></i><i></i><i></i></span>
+              </span>
+            </div>
+
+              <div class="buttons">
+                <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+                
+              </div>
+          </div>
+        </div>
+
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="frm2.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Carlos O.</strong><span class="age">52</span>
+            </div>
+
+            <div class="country"> Brazil
+              <span class="status" data-state="typing">
+             <span class="status-text">Typing</span>
+             <span class="typing-dots"><i></i><i></i><i></i></span>
+             </span>
+            </div>
+
+            <div class="buttons">
+              <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="frw1.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Yuki T.</strong><span class="age">59</span>
+            </div>
+
+            <div class="country"> Japan
+              <span class="status" data-state="typing">
+              <span class="status-text">Typing</span>
+              <span class="typing-dots"><i></i><i></i><i></i></span>
+              </span>
+            </div>
+
+            <div class="buttons">
+              <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+              
+            </div>
+          </div>
+        </div>
+      
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="frw2.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Anita S.</strong><span class="age">55</span>
+            </div>
+
+            <div class="country"> India
+             <span class="status" data-state="typing">
+             <span class="status-text">Typing</span>
+             <span class="typing-dots"><i></i><i></i><i></i></span>
+             </span>
+            </div>
+
+            <div class="buttons">
+              <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="frm3.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Min-Jun P.</strong><span class="age">64</span>
+            </div>
+
+            <div class="country"> South Korea
+              <span class="status" data-state="typing">
+              <span class="status-text">Typing</span>
+              <span class="typing-dots"><i></i><i></i><i></i></span>
+              </span>
+            </div>
+
+           <div class="buttons">
+              <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+              
+           </div>
+          </div>
+        </div>
+
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="frw4.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Emma T</strong><span class="age">45</span>
+            </div>
+
+            <div class="country"> Canada
+              <span class="status" data-state="typing">
+              <span class="status-text">Typing</span>
+              <span class="typing-dots"><i></i><i></i><i></i></span>
+              </span>
+            </div>
+
+           <div class="buttons">
+              <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+              
+           </div>
+          </div>
+        </div>
+
+        <div class="foreigner-card">
+          <div class="avatar">
+            <img src="frm4.png"><span class="online-dot"></span>
+          </div>
+
+          <div class="foreigner-info">
+            <div class="top-row">
+              <strong>Lukas M</strong><span class="age">50</span>
+            </div>
+
+            <div class="country"> German
+              <span class="status" data-state="typing">
+              <span class="status-text">Typing</span>
+              <span class="typing-dots"><i></i><i></i><i></i></span>
+              </span>
+            </div>
+
+           <div class="buttons">
+              <button class="start-btn" onclick="window.open('https://mulaearn.com/register.php?ref=NivlecK','_blank')">Start Chatting</button>
+              
+           </div>
+          </div>
+        </div>
+              
+      </div>
+
+        <a class="join-chat-link" href="#">
+          🟢 +<span id="changingOnlineCount">530</span> more active — join to chat
+        </a>
+
+    </div>
+
+  </div>
+</section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 4: ANIMATED LIVE ACTIVITY TICKER
+    ══════════════════════════════════════ -->
+    <section class="ticker-strip" aria-label="Live activity stream">
+      <div class="ticker-label"><span class="live-dot"></span>LIVE</div>
+      <div class="ticker-track" id="tickerTrack">
+        <!-- Javascript dynamic ticker content -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 5: POWERFUL WAYS TO EARN
+    ══════════════════════════════════════ -->
+    <section class="services" id="services">
+      <div class="container text-center">
+        <span class="badge green-badge">Earn Options</span>
+        <h2 class="section-title">Powerful Ways To <span>Earn</span></h2>
+        <p class="section-sub">Simple daily activities designed to turn your screen time into real cash.</p>
+
+        <div class="services-grid">
+          <!-- 01 -->
+          <div class="service-card service-card--chat">
+            <span class="service-num">01</span>
+            <div class="service-icon"><img class="service-icon-img" src="chat.jpg"></div>
+            <h3>Chat With Foreigners <span>and Earn</span></h3>
+            <p>Make friends with people worldwide and get paid per conversation.</p>
+            <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-primary btn-sm">Start Chatting</a>
+          </div>
+
+          <!-- 02 -->
+          <div class="service-card service-card--teach">
+            <span class="service-num">02</span>
+            <div class="service-icon"><img class="service-icon-img" src="Teach.png"></div>
+            <h3>Teach Your Local Language <span>and Earn</span></h3>
+            <p>Share your local language in quick lessons and earn per session.</p>
+            <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-primary btn-sm">Start Teaching</a>
+          </div>
+
+          <!-- 03 -->
+          <div class="service-card service-card--video">
+            <span class="service-num">03</span>
+            <div class="service-icon"><img class="service-icon-img" src="watch.png"></div>
+            <h3>Watch AI Videos <span>and Earn</span></h3>
+            <p>Stream short AI-made videos in your dashboard and earn per view.</p>
+            <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-primary btn-sm">Watch Videos</a>
+          </div>
+
+          <!-- 04 -->
+          <div class="service-card service-card--survey">
+            <span class="service-num">04</span>
+            <div class="service-icon"><img class="service-icon-img" src="answer.png"></div>
+            <h3>Answer Simple Surveys <span>and Earn</span></h3>
+            <p>Complete quick surveys on topics you know and get rewarded instantly.</p>
+            <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-primary btn-sm">Take Survey</a>
+          </div>
+
+          <!-- 05 -->
+          <div class="service-card service-card--games">
+            <span class="service-num">05</span>
+            <div class="service-icon"><img class="service-icon-img" src="play.jpg"></div>
+            <h3>Play Games <span>and Win Cash</span></h3>
+            <p>Play fun casual games, climb the leaderboards, and win prizes.</p>
+            <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-primary btn-sm">Play Games</a>
+          </div>
+
+          <!-- 06 -->
+          <div class="service-card service-card--loan">
+            <span class="service-num">06</span>
+            <div class="service-icon"><img class="service-icon-img" src="get.jpg"></div>
+            <h3>Get Loans <span>Instantly</span></h3>
+            <p>Need extra cash? Request a quick loan straight to your wallet.</p>
+            <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-gold btn-sm">Request Loan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 6: LANGUAGES / COUNTRIES
+    ══════════════════════════════════════ -->
+    <section class="countries" id="countries">
+      <div class="container text-center">
+        <span class="badge yellow-badge">Teach &amp; Earn</span>
+        <h2 class="section-title">Supported Languages &amp; <span>Countries</span></h2>
+        <p class="section-sub">Teach your local language to curious learners globally and get paid per lesson.</p>
+
+        <div class="lang-grid">
+          <div class="lang-tag"><span class="flag">🇰🇪</span><div><strong>Kenya</strong><span>Kiswahili</span></div></div>
+          <div class="lang-tag"><span class="flag">🇺🇬</span><div><strong>Uganda</strong><span>Luganda</span></div></div>
+          <div class="lang-tag"><span class="flag">🇹🇿</span><div><strong>Tanzania</strong><span>Kiswahili</span></div></div>
+          <div class="lang-tag"><span class="flag">🇷🇼</span><div><strong>Rwanda</strong><span>Kinyarwanda</span></div></div>
+          <div class="lang-tag"><span class="flag">🇧🇮</span><div><strong>Burundi</strong><span>Kirundi</span></div></div>
+          <div class="lang-tag"><span class="flag">🇬🇭</span><div><strong>Ghana</strong><span>Twi</span></div></div>
+          <div class="lang-tag"><span class="flag">🇳🇬</span><div><strong>Nigeria</strong><span>Yoruba</span></div></div>
+          <div class="lang-tag"><span class="flag">🇧🇼</span><div><strong>Botswana</strong><span>Setswana</span></div></div>
+          <div class="lang-tag"><span class="flag">🇿🇦</span><div><strong>South Africa</strong><span>isiZulu</span></div></div>
+          <div class="lang-tag"><span class="flag">🇨🇲</span><div><strong>Cameroon</strong><span>Duala</span></div></div>
+          <div class="lang-tag"><span class="flag">🇿🇲</span><div><strong>Zambia</strong><span>Bemba</span></div></div>
+          <div class="lang-tag"><span class="flag">🇲🇼</span><div><strong>Malawi</strong><span>Chichewa</span></div></div>
+        </div>
+
+        <div style="margin-top: 30px;">
+          <a href="https://sites.google.com/view/monichatsite/home" class="btn btn-primary">Join Your Country's Community</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 7: LIVE STATS COUNTER
+    ══════════════════════════════════════ -->
+    <section class="stats-live">
+      <div class="container">
+        <div class="stats-live-grid">
+          <div class="stat-live-card">
+            <div class="stat-live-num" data-count="52840">0</div>
+            <div class="stat-live-label">Total Users</div>
+          </div>
+          <div class="stat-live-card">
+            <div class="stat-live-num" id="totalPaidOut" data-count="1284902" data-prefix="$">0</div>
+            <div class="stat-live-label">Total Paid Out</div>
+          </div>
+          <div class="stat-live-card">
+            <div class="stat-live-num live-online-num"><span class="live-dot"></span><span id="statsOnline">2,481</span></div>
+            <div class="stat-live-label">Online Now</div>
+          </div>
+          <div class="stat-live-card">
+            <div class="stat-live-num">4.9★</div>
+            <div class="stat-live-label">Average Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 8: APP DOWNLOAD
+    ══════════════════════════════════════ -->
+    <section class="app-section" id="app">
+      <div class="container text-center">
+        <span class="badge green-badge">Mobile App</span>
+        <h2 class="section-title">Download MoniChat App <span>For Android &amp; iOS</span></h2>
+        <p class="section-sub">Manage your chats, tasks, and withdrawals easily from your mobile phone.</p>
+
+        <div class="app-card-wrapper">
+          <div class="app-steps">
+            <div class="app-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>Download App</strong>
+                <span>Get official app file safely</span>
+              </div>
+            </div>
+            <div class="app-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Create Account</strong>
+                <span>Register in less than a minute</span>
+              </div>
+            </div>
+            <div class="app-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>Start Earning</strong>
+                <span>Earn and cash out daily</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-gold">📲 Download App Here</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 9: TESTIMONIALS
+    ══════════════════════════════════════ -->
+    <section class="testimonials" id="testimonials">
+      <div class="container text-center">
+        <span class="badge yellow-badge">User Reviews</span>
+        <h2 class="section-title">Hear From Our <span>Happy Earners</span></h2>
+        <p class="section-sub">Real reviews from our growing community across the continent.</p>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"MoniChat transformed how I earn online. As a student, I now make daily money just by chatting in my breaks."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar"><img src="man2.jpg" alt="Amara" onerror="this.parentElement.textContent='AM';"></div>
+              <div class="author-info">
+                <strong>Amara Mirembo</strong>
+                <span>🇺🇬 Student — Uganda</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I earn consistently by chatting with foreign learners and payouts to mobile money are extremely fast."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar"><img src="man.png" alt="Kwame" onerror="this.parentElement.textContent='KA';"></div>
+              <div class="author-info">
+                <strong>Kwame Asante</strong>
+                <span>🇬🇭 Entrepreneur — Ghana</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Withdrawals to Mpesa are smooth and transparent. I recommend this platform to everyone in Kenya."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar"><img src="woman.jpg" alt="Njeri" onerror="this.parentElement.textContent='NW';"></div>
+              <div class="author-info">
+                <strong>Njeri Wambui</strong>
+                <span>🇰🇪 Freelancer — Kenya</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 10: FAQ
+    ══════════════════════════════════════ -->
+    <section class="faq" id="faq">
+      <div class="container text-center">
+        <span class="badge green-badge">FAQ</span>
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <p class="section-sub">Find quick answers to common questions about MoniChat.</p>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What is MoniChat?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              MoniChat is an online platform where users earn daily income by chatting, teaching local languages, answering surveys, and completing light online tasks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I start earning money?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Simply register your account, choose your preferred earning method (Chatting, Language teaching, Surveys, etc.), and cash out earnings to your Mobile Money or bank account.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How much is the joining / activation fee?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              The activation fee is a standard one-time fee depending on your country:
+              <table class="fees-table">
+                <thead><tr><th>Country</th><th>Fee</th></tr></thead>
+                <tbody>
+                  <tr><td>Kenya</td><td>KSH 500</td></tr>
+                  <tr><td>Uganda</td><td>UGX 19,000</td></tr>
+                  <tr><td>Ghana</td><td>GHC 96</td></tr>
+                  <tr><td>Nigeria</td><td>NGN 8,500</td></tr>
+                  <tr><td>Tanzania</td><td>TZS 11,500</td></tr>
+                  <tr><td>Rwanda</td><td>RWF 6,350</td></tr>
+                  <tr><td>Zambia</td><td>ZK 100</td></tr>
+                  <tr><td>Botswana</td><td>BWP 100</td></tr>
+                  <tr><td>Cameroon</td><td>XAF 4000</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I withdraw my money?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Withdrawals are processed instantly to Mobile Money (Mpesa, MoMo, Airtel Money), Local Banks, or Crypto wallets.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 11: CTA BANNER
+    ══════════════════════════════════════ -->
+    <section class="cta-banner">
+      <div class="container text-center">
+        <h2>Upgrade Your Daily Income — <span>Start Today!</span></h2>
+        <p>Join thousands of active users earning money daily on MoniChat.</p>
+        <div class="cta-btns">
+          <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-primary">🚀 Register Today</a>
+          <a href="https://mulaearn.com/register.php?ref=NivlecK" class="btn btn-gold">Create Account</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       SECTION 12: FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container text-center">
+      <a href="#" class="nav-logo footer-logo">
+        <div class="logo-icon"><img src="logo.png" alt="logo" onerror="this.parentElement.textContent='💬';"></div>
+        <span class="logo-text">Moni<span>Chat</span></span>
+      </a>
+      
+      <p class="footer-desc">Connect, teach, chat, and earn daily from your smartphone.</p>
+
+      <div class="footer-social-row">
+        <a href="https://wa.me/254107689839?" class="footer-social-icon whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.67-.82-1.93-.92-.26-.1-.45-.14-.64.14-.19.28-.73.92-.9 1.11-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.24-1.38-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38 0 1.4 1.02 2.76 1.16 2.95.14.19 2 3.06 4.86 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.67-.68 1.9-1.34.24-.66.24-1.22.16-1.34-.07-.12-.26-.19-.54-.33z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.32A9.96 9.96 0 0 0 12.02 22C17.54 22 22 17.52 22 12S17.54 2 12.02 2zm0 18.1c-1.68 0-3.24-.48-4.57-1.31l-.33-.2-3.01.78.8-2.94-.21-.32A8.07 8.07 0 0 1 3.9 12c0-4.48 3.65-8.1 8.12-8.1 4.47 0 8.12 3.62 8.12 8.1 0 4.48-3.65 8.1-8.12 8.1z"/></svg>
+        </a>
+        <a href="https://t.me/NivlecK" class="footer-social-icon telegram" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.94 4.5c.26-1.1-.9-1.98-1.94-1.53L2.4 10.24c-1.13.5-1.12 2.1.02 2.58l4.5 1.9 1.72 5.5c.24.75 1.19.98 1.76.42l2.53-2.47 4.66 3.42c.9.66 2.18.17 2.4-.93L21.94 4.5zM8.53 13.9l-3.7-1.56 12.4-6.9-9.8 8.24c-.14.12-.24.28-.28.46l-.62 2.4-.66-2.13c-.06-.2-.2-.37-.34-.51z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 MoniChat. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+    // FAQ Accordion
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Dynamic changing online count for foreigners
+    let onlineCount = 500;
+    const changingCountEl = document.getElementById('changingOnlineCount');
+    setInterval(() => {
+      onlineCount = 531 + Math.floor(Math.random() * 12);
+      if (changingCountEl) changingCountEl.textContent = onlineCount;
+    }, 3000);
+
+    // Toggle each foreigner's status between Online and Typing, staggered randomly
+    function setForeignerStatus(el, state) {
+    el.dataset.state = state;
+    el.querySelector('.status-text').textContent = state === 'typing' ? 'Typing' : 'Online';
+    }
+    document.querySelectorAll('.foreigner-card .status').forEach(statusEl => {
+    setInterval(() => {
+     const next = statusEl.dataset.state === 'typing' ? 'online' : 'typing';
+     setForeignerStatus(statusEl, next);
+    }, 3000 + Math.random() * 4000);
+    });
+
+    // Live online counter fluctuation
+    const onlineEls = [document.getElementById('onlineCount'), document.getElementById('statsOnline')];
+    let mainOnlineVal = 2481;
+    setInterval(() => {
+      mainOnlineVal += Math.floor(Math.random() * 9) - 4;
+      if (mainOnlineVal < 2000) mainOnlineVal = 2000;
+      onlineEls.forEach(el => { if (el) el.textContent = mainOnlineVal.toLocaleString(); });
+    }, 3500);
+
+    // Animated count up numbers
+    function animateCount(el) {
+      const target = parseInt(el.getAttribute('data-count'), 10);
+      const prefix = el.getAttribute('data-prefix') || '';
+      const duration = 1600;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const value = Math.floor(progress * target);
+        el.textContent = prefix + value.toLocaleString();
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + target.toLocaleString();
+      }
+      requestAnimationFrame(tick);
+    }
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      countObserver.unobserve(entry.target);
+
+      // Keep "Total Paid Out" climbing upward only, after its initial count-up finishes
+      if (entry.target.id === 'totalPaidOut') {
+        setTimeout(() => {
+          let paidOutVal = parseInt(entry.target.getAttribute('data-count'), 10);
+          setInterval(() => {
+            paidOutVal += Math.floor(Math.random() * 150) + 20; // always positive
+            entry.target.textContent = '$' + paidOutVal.toLocaleString();
+          }, 4000);
+        }, 1700); // waits out animateCount's 1600ms animation so they don't collide
+      }
+    }
+  });
+}, { threshold: 0.3 });
+
+    document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+
+    // Activity Ticker Content
+    const tickerItems = [
+      '🇰🇪 Wanjiru just earned KSH 450 chatting',
+      '🇬🇭 Kojo just joined MoniChat',
+      '🇺🇬 Nakato earned UGX 8,200 teaching Luganda',
+      '🇳🇬 Chidi cashed out ₦12,000 today',
+      '🇹ℤ Amina completed 5 surveys and earned',
+      '🇷🇼 Uwase just started a chat session',
+      '🇿🇦 Thabo won cash playing games',
+      '🇨🇲 Ngozi earned XAF 6,000 teaching Duala'
+    ];
+    const track = document.getElementById('tickerTrack');
+    if (track) {
+      [...tickerItems, ...tickerItems].forEach(text => {
+        const span = document.createElement('span');
+        span.className = 'ticker-item';
+        span.textContent = text;
+        track.appendChild(span);
+      });
+    }
+
+    // Bottom left popping toast activity notification
+    const toastPool = [
+      { flag: '🇰🇪', name: 'James K.', text: 'just earned KSH 620 chatting' },
+      { flag: '🇬🇭', name: 'Ama O.', text: 'just started teaching Twi' },
+      { flag: '🇺🇬', name: 'Brian M.', text: 'withdrew UGX 15,000 to MoMo' },
+      { flag: '🇳🇬', name: 'Ifeoma A.', text: 'earned ₦3,400 answering surveys' },
+      { flag: '🇹🇿', name: 'Saidi R.', text: 'just joined MoniChat' },
+      { flag: '🇷🇼', name: 'Aline U.', text: 'won cash playing games' }
+    ];
+    function showToast() {
+      const item = toastPool[Math.floor(Math.random() * toastPool.length)];
+      const toast = document.createElement('div');
+      toast.className = 'live-toast';
+      toast.innerHTML = `<span class="live-toast-flag">${item.flag}</span><span class="live-toast-text"><strong>${item.name}</strong> ${item.text}</span>`;
+      document.body.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.add('show'));
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 500);
+      }, 4000);
+    }
+    setTimeout(showToast, 2500);
+    setInterval(showToast, 7500);
+  </script>
+</body>
+</html>
